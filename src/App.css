@@ -1,0 +1,382 @@
+body {
+  font-family: Arial, sans-serif;
+  background: url('https://extension.harvard.edu/wp-content/uploads/sites/8/2024/01/Goal-Setting.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Main App container */
+.App {
+  text-align: center;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  max-width: 1200px;
+  width: 90%;
+  height: 80%;
+  min-height: 600px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+/* Goal form adjustments */
+.goal-form {
+  margin: 30px auto;
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.goal-form input {
+  padding: 15px;
+  font-size: 18px;
+  width: 300px;
+  min-width: 200px;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  transition: all 0.3s ease;
+}
+
+.goal-form input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+.goal-form button {
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-left: 15px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.goal-form button:hover {
+  transform: translateY(-5px);
+  background-color: #0056b3;
+}
+
+/* Goal list item spacing */
+.goal-item {
+  margin: 25px 0;
+  padding: 25px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  width: 100%;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 30px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideIn 0.5s ease forwards;
+}
+
+.goal-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Progress bar styling */
+.progress-bar {
+  background-color: #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 15px 0;
+  height: 25px;
+  width: 100%;
+}
+
+.progress {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+/* Stats box styling */
+.stats {
+  margin: 40px auto;
+  padding: 30px;
+  background-color: rgba(230, 230, 250, 0.7);
+  border-radius: 12px;
+  max-width: 250px;
+  text-align: left;
+  font-size: 18px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+/* Navbar adjustments */
+.navbar {
+  background-color: #333;
+  padding: 15px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  display: inline-block;
+  margin: 0 25px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  transition: text-decoration 0.3s ease;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Goal details modal */
+.goal-details-modal {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  opacity: 0;
+  transform: scale(0.9);
+  animation: modalFadeIn 0.5s ease forwards;
+}
+
+.goal-details-modal .actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.goal-details-modal button {
+  padding: 12px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.goal-details-modal button:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+}
+
+/* Welcome page */
+.welcome-container {
+  text-align: center;
+  padding: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  width: 80vw;
+  max-width: 1200px;
+  margin: 50px auto;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-sizing: border-box;
+  transform: scale(0.95);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.welcome-container:hover {
+  transform: scale(1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-container h1 {
+  font-size: 32px;
+  color: #007bff;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-container p {
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* Button styling */
+.start-button {
+  padding: 14px 28px;
+  font-size: 18px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+.start-button:hover {
+  background-color: #218838;
+  transform: translateY(-3px);
+}
+
+.start-button:active {
+  background-color: #1e7e34;
+}
+
+/* Info text inside Welcome Page */
+.welcome-container .info-text {
+  font-size: 16px;
+  color: #999;
+  margin-top: 10px;
+}
+
+.welcome-container .info-text a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.welcome-container .info-text a:hover {
+  text-decoration: underline;
+}
+
+/* Search bar and filters */
+.search-bar {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.search-bar input {
+  padding: 15px;
+  width: 80%;
+  max-width: 600px;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.search-bar input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+.filters {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+
+.filters label {
+  font-size: 16px;
+}
+
+.filters select,
+.filters input {
+  padding: 8px;
+  font-size: 16px;
+  margin-left: 10px;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  transition: all 0.3s ease;
+}
+
+.filters select:focus,
+.filters input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes modalFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .welcome-container {
+    width: 85vw;
+    padding: 40px;
+  }
+
+  .goal-form input,
+  .goal-form button {
+    width: 100%;
+  }
+
+  .goal-form {
+    gap: 20px;
+  }
+
+  .goal-item {
+    width: 90%;
+    margin: 15px auto;
+  }
+
+  .navbar {
+    display: none;
+  }
+}
