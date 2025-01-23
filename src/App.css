@@ -11,7 +11,6 @@ body {
   overflow: hidden;
 }
 
-/* Main App container */
 .App {
   text-align: center;
   padding: 40px;
@@ -31,7 +30,6 @@ body {
   animation: fadeIn 1s ease forwards;
 }
 
-/* Goal form adjustments */
 .goal-form {
   margin: 30px auto;
   display: flex;
@@ -71,8 +69,6 @@ body {
   transform: translateY(-5px);
   background-color: #0056b3;
 }
-
-/* Goal list item spacing */
 .goal-item {
   margin: 25px 0;
   padding: 25px;
@@ -95,7 +91,6 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Progress bar styling */
 .progress-bar {
   background-color: #ddd;
   border-radius: 8px;
@@ -110,7 +105,6 @@ body {
   transition: width 0.3s ease;
 }
 
-/* Stats box styling */
 .stats {
   margin: 40px auto;
   padding: 30px;
@@ -124,7 +118,6 @@ body {
   animation: fadeIn 1.5s ease forwards;
 }
 
-/* Navbar adjustments */
 .navbar {
   background-color: #333;
   padding: 15px;
@@ -155,7 +148,6 @@ body {
   text-decoration: underline;
 }
 
-/* Modal overlay */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -169,7 +161,6 @@ body {
   z-index: 1000;
 }
 
-/* Goal details modal */
 .goal-details-modal {
   background-color: white;
   padding: 30px;
@@ -204,7 +195,6 @@ body {
   transform: translateY(-3px);
 }
 
-/* Welcome page */
 .welcome-container {
   text-align: center;
   padding: 50px;
@@ -240,7 +230,6 @@ body {
   margin-bottom: 30px;
 }
 
-/* Button styling */
 .start-button {
   padding: 14px 28px;
   font-size: 18px;
@@ -262,7 +251,6 @@ body {
   background-color: #1e7e34;
 }
 
-/* Info text inside Welcome Page */
 .welcome-container .info-text {
   font-size: 16px;
   color: #999;
@@ -278,7 +266,6 @@ body {
   text-decoration: underline;
 }
 
-/* Search bar and filters */
 .search-bar {
   margin-bottom: 30px;
   text-align: center;
@@ -323,7 +310,6 @@ body {
   box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
 }
 
-/* Animations */
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -355,7 +341,6 @@ body {
   }
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .welcome-container {
     width: 85vw;

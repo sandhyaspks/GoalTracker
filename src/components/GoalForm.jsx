@@ -5,15 +5,15 @@ const GoalForm = ({ addGoal }) => {
   const [milestones, setMilestones] = useState('');
   const [progress, setProgress] = useState(0);
   const [dueDate, setDueDate] = useState('');
-  const [category, setCategory] = useState('Work'); // Default category
-  const [customCategory, setCustomCategory] = useState(''); // For dynamic input
+  const [category, setCategory] = useState('Work'); 
+  const [customCategory, setCustomCategory] = useState(''); 
   const [categories, setCategories] = useState([
     'Work',
     'Personal',
     'Fitness',
     'Education',
     'Other',
-  ]); // Initial category options
+  ]); 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,15 +26,15 @@ const GoalForm = ({ addGoal }) => {
         milestones,
         progress,
         dueDate,
-        category: finalCategory, // Use custom or selected category
+        category: finalCategory, 
       });
 
       setTitle('');
       setMilestones('');
       setProgress(0);
       setDueDate('');
-      setCategory('Work'); // Reset to default
-      setCustomCategory(''); // Reset custom category
+      setCategory('Work'); 
+      setCustomCategory(''); 
     } else {
       alert('Please fill all fields before submitting!');
     }

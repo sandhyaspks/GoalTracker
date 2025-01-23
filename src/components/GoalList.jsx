@@ -8,25 +8,20 @@ const GoalList = ({ goals, updateProgress, selectGoal }) => {
 
   const today = new Date().toISOString().split('T')[0];
 
-  // Filter goals based on search and filters
   const filteredGoals = goals.filter((goal) => {
-    // Search filter by title or category
     const matchesSearch =
       goal.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       goal.category.toLowerCase().includes(searchQuery.toLowerCase());
 
-    // Progress filter
     const matchesProgress =
       progressFilter === '' || goal.progress === parseInt(progressFilter);
 
-    // Due date filter
     const matchesDueDate =
       dueDateFilter === '' || goal.dueDate === dueDateFilter;
 
     return matchesSearch && matchesProgress && matchesDueDate;
   });
 
-  // Clear all filters and search input
   const clearFilters = () => {
     setSearchQuery('');
     setProgressFilter('');
@@ -35,7 +30,7 @@ const GoalList = ({ goals, updateProgress, selectGoal }) => {
 
   return (
     <div className="goal-list">
-      {/* Search Bar */}
+      {          }
       <div className="search-bar">
         <input
           type="text"
@@ -45,7 +40,7 @@ const GoalList = ({ goals, updateProgress, selectGoal }) => {
         />
       </div>
 
-      {/* Filters */}
+      {         }
       <div className="filters">
         <label>
           Progress:
@@ -76,7 +71,7 @@ const GoalList = ({ goals, updateProgress, selectGoal }) => {
         </button>
       </div>
 
-      {/* Displaying filtered goals */}
+      {           }
       {filteredGoals.length === 0 ? (
         <p>No goals match your search or filters.</p>
       ) : (
